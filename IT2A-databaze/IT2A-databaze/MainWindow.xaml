@@ -1,0 +1,63 @@
+﻿<Window x:Class="IT2A_databaze.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IT2A_databaze"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- TABULKA -->
+        <DataGrid x:Name="dgProdukty"
+                  Grid.Column="0"
+                  Margin="0,0,10,0"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  SelectionMode="Single">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Název" Binding="{Binding Nazev}" Width="*"/>
+                <DataGridTextColumn Header="Výrobce" Binding="{Binding Vyrobce}" Width="*"/>
+                <DataGridTextColumn Header="Rok" Binding="{Binding RokVyroby}" Width="80"/>
+                <DataGridTextColumn Header="Kategorie" Binding="{Binding Kategorie}" Width="120"/>
+                <DataGridTextColumn Header="Ks" Binding="{Binding PocetKusu}" Width="60"/>
+                <DataGridCheckBoxColumn Header="Dostupný" Binding="{Binding JeDostupny}" Width="90"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- FORMULÁŘ -->
+        <StackPanel Grid.Column="1">
+
+            <TextBlock Text="Evidence produktů" FontSize="18" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Název"/>
+            <TextBox x:Name="tbNazev"/>
+
+            <TextBlock Text="Výrobce"/>
+            <TextBox x:Name="tbVyrobce"/>
+
+            <TextBlock Text="Rok výroby"/>
+            <TextBox x:Name="tbRok"/>
+
+            <TextBlock Text="Kategorie"/>
+            <TextBox x:Name="tbKategorie"/>
+
+            <TextBlock Text="Počet kusů"/>
+            <TextBox x:Name="tbKusy"/>
+
+            <CheckBox x:Name="cbDostupny" Content="Produkt je dostupný" Margin="0,5"/>
+
+            <Button Content="Přidat produkt" Click="Pridat_Click" Margin="0,5"/>
+            <Button Content="Načíst vybraný" Click="Nacist_Click" Margin="0,5"/>
+            <Button Content="Upravit" Click="Upravit_Click" Margin="0,5"/>
+            <Button Content="Smazat" Click="Smazat_Click" Margin="0,5"/>
+            <Button Content="Vyčistit" Click="Vymazat_Click" Margin="0,5"/>
+
+        </StackPanel>
+    </Grid>
+</Window>
